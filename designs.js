@@ -5,13 +5,6 @@ $('#pixel_canvas').on("click", "td", function() {
 })
 
 
-
-$('#colorPicker').change(function() {
-    console.log("Test")
-    color = $(this).val();
-    console.log(color);
-})
-
 // When size is submitted by the user, call makeGrid()
 
 $('#sizePicker').submit(function() {
@@ -31,19 +24,19 @@ $('#sizePicker').submit(function() {
 
 function makeGrid(height, width) {
     // Define elments:
-    const row = '<tr><td></td></tr>';
+    const row = '<tr></tr>';
     const square ='<td></td>';
 
-    while (height > 0) {
+    while (width > 0) {
         $('#pixel_canvas').append(row);
-            let i = width
-            while (i > 1) {
+            let i = height
+            while (i > 0) {
                 $('#pixel_canvas tr:last').append(square);
                 i --;
             }
-        height --;
+        width --;
     }
 }
 
 // Default to 10/10
-$(document).ready(makeGrid(10,10));
+makeGrid(10,10);
